@@ -1,5 +1,6 @@
 package org.smartphone;
 
+import javax.naming.CompositeName;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +8,10 @@ public class Smartphone implements Radio, GPS {
 
     private String model;
     private String manufacturer;
-    private List<Friend> contacts = new ArrayList<>();
+    private List<Contact> contacts = new ArrayList<>();
 
     public Smartphone(){};
-    public Smartphone(String model, String manufacturer, List<Friend> contacts){
+    public Smartphone(String model, String manufacturer, List<Contact> contacts){
         this.model = model;
         this.manufacturer = manufacturer;
         this.contacts = contacts;
@@ -38,7 +39,7 @@ public class Smartphone implements Radio, GPS {
         return manufacturer;
     }
 
-    public List<Friend> getContacts() {
+    public List<Contact> getContacts() {
         return contacts;
     }
 
@@ -50,8 +51,36 @@ public class Smartphone implements Radio, GPS {
         this.manufacturer = manufacturer;
     }
 
-    public void setContacts(List<Friend> contacts) {
+    public void setContacts(List<Contact> contacts) {
         this.contacts = contacts;
+    }
+
+    public void addContact(Contact contact){
+        contacts.add(contact);
+    }
+
+    public Contact getContact(int index){
+        return contacts.get(index);
+    }
+
+    public Contact getContactByName(String name){
+        for(Contact contact: contacts){
+            if(contact.getNameOfContact() == name){
+                return contact;
+            }
+        }
+        return null; //Nothing found
+    }
+
+    public String removeContact(String name){
+        for(Contact contact: contacts){
+            if(contact.getNameOfContact() == name){
+                String returnInfo = contact.toString();
+                contacts.remove(contact);
+                return returnInfo;
+            }
+        }
+        return ""; //Nothing found
     }
 
     @Override
