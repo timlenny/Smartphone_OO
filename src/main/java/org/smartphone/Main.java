@@ -12,6 +12,7 @@ public class Main {
             contacts.add(new Friend("Max Mustermann", (long)(Math.random() * 999999999)));
         }
 
+
         Smartphone iPhone = new Smartphone("iPhone8", "Apple", contacts );
 
         System.out.println(iPhone);
