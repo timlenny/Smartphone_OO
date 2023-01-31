@@ -89,6 +89,7 @@ public class SmartphoneTest {
         Assertions.assertEquals("\n" +
                 "Friend{, nameOfContact='Jojo / phoneNumber=1800123679}", iPhone.getContactByName("Jojo").toString());
 
+
     }
 
     @Test
@@ -106,6 +107,7 @@ public class SmartphoneTest {
 
         Assertions.assertEquals("\n" +
                 "Friend{, nameOfContact='Jojo / phoneNumber=1800123679}", iPhone.removeContact("Jojo"));
+        Assertions.assertEquals(4, iPhone.getContacts().size());
 
     }
 
